@@ -11,8 +11,10 @@ const Weather = () => {
 
 	return (
 		<>
-			<WeatherForm callback={setLocation} />
-			<WeatherDisplay location={location} />
+			{location === 0 || !location ? (
+				<WeatherForm callback={setLocation} />
+			) : null}
+			<WeatherDisplay location={location} reset={setLocation} />
 		</>
 	);
 };

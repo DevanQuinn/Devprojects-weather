@@ -1,19 +1,26 @@
 import formatDate from '../../../Util/Dates';
 import { useState, useRef } from 'react';
 
-const InfoBlocks = ({ location, callback }) => {
+const InfoBlocks = ({ location, reset, select }) => {
 	const [selectedBlock, setSelectedBlock] = useState(0);
 	const selectBlock = useRef();
 
 	const handleClick = index => {
 		setSelectedBlock(index);
-		callback(index);
+		select(index);
 	};
+
+	const handleReset = () => reset(0);
 
 	return (
 		<>
 			<h1 id='area'>
 				{location['city_name']}, {location['state_code']}
+				<img
+					src='https://cdn0.iconfinder.com/data/icons/basic-uses-symbol-vol-3/100/Refresh_Reset_Reload_Again_Restart-512.png'
+					alt='reset-icon'
+					onClick={handleReset}
+				/>
 			</h1>
 			<div id='weather-container'>
 				{location.data.map((day, i) => {

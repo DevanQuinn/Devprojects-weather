@@ -5,19 +5,25 @@ const WeatherChart = ({ data }) => {
 	const canvas = useRef();
 	useEffect(() => {
 		const ctx = canvas.current.getContext('2d');
+		canvas.current.height = 20;
+		canvas.current.style.marginTop = '40px';
 
 		const chart = new Chart(ctx, {
 			type: 'line',
-			data: {
-				labels: ['Today', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
-				datasets: [
-					{
-						data,
-					},
-				],
+			data,
+			options: {
+				pointStyle: 'circle',
+				spanGaps: true,
+				fill: false,
+				legend: { display: false },
+				scales: {
+					yAxes: [{ display: false }],
+					xAxes: [{ display: false }],
+				},
+				elements: { point: { radius: 0 } },
 			},
-			options: { pointStyle: 'circle', spanGaps: true },
 		});
+		Chart.defaults.global.legend.display = false;
 
 		return () => chart.destroy();
 	});
