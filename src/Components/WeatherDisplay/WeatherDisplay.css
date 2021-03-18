@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.weather-block {
+	background-color: #eeeeee;
+	margin: 5px;
+	width: 20%;
+	height: 25%;
+	cursor: pointer;
+	text-align: center;
+	transition: all 0.2s ease;
+}
+
+.weather-block:hover {
+	transform: scale(1.075);
+	margin: 0 12px;
+}
+
+#weather-today {
+	background-color: rgb(101, 148, 239);
+	color: white;
+}
+
+#weather-container {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+}
