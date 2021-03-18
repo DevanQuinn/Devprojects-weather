@@ -2,13 +2,15 @@ import { useState } from 'react';
 
 const WeatherForm = ({ callback }) => {
 	const [location, setLocation] = useState();
+	const [coords, setCoords] = useState(undefined);
 	const api_key = process.env.REACT_APP_API_KEY;
 	const getLocation = () => {
 		var options = {
 			enableHighAccuracy: false,
-			timeout: 1000,
+			timeout: 3000,
 			maximumAge: 0,
 		};
+		if (coords) return showPosition(coords);
 		if (navigator.geolocation)
 			navigator.geolocation.getCurrentPosition(
 				showPosition,
@@ -18,11 +20,14 @@ const WeatherForm = ({ callback }) => {
 	};
 	const handleError = err => console.log(err);
 	const showPosition = async position => {
-		const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${position.coords.latitude}&long=${position.coors.longitude}&days=7&units=I&key=${api_key}`;
+		if (!position) return;
+		setCoords(position);
+		const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${position.coords.latitude}&lon=${position.coords.longitude}&days=7&units=I&key=${api_key}`;
 		const locationCode = await fetch(url);
 		if (locationCode.status !== 200) return callback(0);
 		const locationCodeJson = await locationCode.json();
-		callback(locationCodeJson);
+		const value = `${locationCodeJson['city_name']}, ${locationCodeJson['state_code']}, ${locationCodeJson['country_code']}`;
+		setLocation(value);
 	};
 	const updateLocation = async e => {
 		e.preventDefault();
@@ -38,7 +43,13 @@ const WeatherForm = ({ callback }) => {
 	return (
 		<>
 			<form onSubmit={updateLocation}>
-				<input placeholder='New York' onChange={handleChange}></input>
+				<h6>If the city is not accurate, try including the state/country.</h6>
+				<input
+					placeholder='New York, NY, US'
+					onChange={handleChange}
+					defaultValue={location}
+				/>
+				<button type='submit'>Enter</button>
 			</form>
 			<br />
 			<button onClick={getLocation}>Get Current Location</button>

@@ -5,8 +5,8 @@ const App = () => {
 	return (
 		<>
 			<Weather />
-			<p>Devan Quinn</p>
 			<a href='https://github.com/DevanQuinn' target='_blank' rel='noreferrer'>
+				<p>Devan Quinn</p>
 				<img
 					id='creds'
 					alt='github-icon'
