@@ -1,0 +1,32 @@
+#description {
+	display: flex;
+	flex-direction: row;
+}
+#large-info {
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	overflow: hidden;
+	margin: 5px auto;
+	text-align: center;
+	background-color: rgb(101, 148, 239);
+	color: white;
+	width: 99%;
+}
+
+#small-data {
+	display: flex;
+	flex-direction: row;
+	align-items: space-around;
+}
+
+.grid-small {
+	margin: 10px;
+	/* background-color: #eeeeee; */
+	padding: 10px;
+	border-radius: 15px;
+}
+
+.subtitle {
+	color: rgb(199, 199, 199);
+}
