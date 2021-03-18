@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import WeatherChart from './WeatherChart/WeatherChart.jsx';
 import InfoBlocks from './InfoBlocks/InfoBlocks.jsx';
+import LargeInfo from './LargeInfo/LargeInfo.jsx';
 import './WeatherDisplay.css';
 
 const WeatherDisplay = ({ location }) => {
 	const [chartData, setChartData] = useState([]);
+	const [infoSelect, setInfoSelect] = useState(0);
 	useEffect(() => {
 		if (location)
 			setChartData(
@@ -17,8 +19,9 @@ const WeatherDisplay = ({ location }) => {
 	if (!location) return <h1>Not Found</h1>;
 	return (
 		<>
-			<InfoBlocks location={location} />
-			<WeatherChart data={chartData} />
+			<InfoBlocks location={location} callback={setInfoSelect} />
+			<LargeInfo data={location.data[infoSelect]} />
+			{true === false ? <WeatherChart data={chartData} /> : null}
 		</>
 	);
 };

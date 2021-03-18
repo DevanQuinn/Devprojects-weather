@@ -15,15 +15,23 @@
 	margin: 0 12px;
 }
 
-#weather-today {
+#weather-selected {
 	background-color: rgb(101, 148, 239);
 	color: white;
+	transform: scale(1.075);
+	margin: 0 12px;
 }
 
 #weather-container {
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
+}
+
+#area {
+	text-align: center;
+	background-color: rgb(240, 240, 240);
+	padding: 10px 0;
 }
 
 body {
