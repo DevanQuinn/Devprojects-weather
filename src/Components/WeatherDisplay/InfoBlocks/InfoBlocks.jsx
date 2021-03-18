@@ -8,6 +8,9 @@ const InfoBlocks = ({ location, reset, select }) => {
 	const handleClick = index => {
 		setSelectedBlock(index);
 		select(index);
+		console.log(selectBlock);
+		const el = document.getElementsByClassName('weather-block')[index];
+		el.scrollTo(window.innerWidth / 2, 0);
 	};
 
 	const handleReset = () => reset(0);

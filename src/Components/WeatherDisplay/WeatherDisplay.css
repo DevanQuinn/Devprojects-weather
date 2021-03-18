@@ -41,8 +41,8 @@
 }
 
 #area img {
-	width: 3%;
-	height: 3%;
+	width: 1em;
+	height: 1em;
 	margin-left: 5px;
 	vertical-align: text-bottom;
 	cursor: pointer;
@@ -59,8 +59,15 @@ body {
 	font-family: 'Montserrat', sans-serif;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
 	#weather-container {
-		flex-flow: column;
+		flex-flow: row nowrap;
+		overflow: scroll;
+		width: 100%;
+	}
+
+	.weather-block {
+		width: 75%;
+		border-radius: 0;
 	}
 }

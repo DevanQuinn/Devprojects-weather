@@ -5,6 +5,7 @@ const App = () => {
 	return (
 		<>
 			<Weather />
+			<p>Devan Quinn</p>
 			<a href='https://github.com/DevanQuinn' target='_blank' rel='noreferrer'>
 				<img
 					id='creds'
