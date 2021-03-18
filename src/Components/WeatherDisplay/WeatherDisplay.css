@@ -11,7 +11,7 @@
 }
 
 .weather-block:hover {
-	transform: scale(1.075);
+	transform: scale(1.05);
 	margin: 0 12px;
 }
 
@@ -19,13 +19,15 @@
 	background-color: rgb(101, 148, 239);
 	color: white;
 	transform: scale(1.075);
-	margin: 0 12px;
+	margin: 0 20px;
 }
 
 #weather-container {
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
+	overflow: scroll;
+	overflow: visible;
 }
 
 #area {
@@ -36,4 +38,10 @@
 
 body {
 	font-family: 'Montserrat', sans-serif;
+}
+
+@media only screen and (max-width: 600px) {
+	#weather-container {
+		flex-flow: column;
+	}
 }

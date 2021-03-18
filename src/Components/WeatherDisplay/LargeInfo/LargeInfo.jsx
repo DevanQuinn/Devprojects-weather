@@ -34,12 +34,6 @@ const LargeInfo = ({ data }) => {
 					<p className='subtitle'>Precipitation</p>
 					<h4>{data.pop}%</h4>
 				</div>
-				{data.snow ? (
-					<div id='precipitation' className='grid-small'>
-						<p className='subtitle'>Snowfall</p>
-						<h4>{data.snow / 25.4} inches</h4>
-					</div>
-				) : null}
 			</div>
 		</div>
 	);

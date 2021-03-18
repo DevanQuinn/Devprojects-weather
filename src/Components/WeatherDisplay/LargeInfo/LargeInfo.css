@@ -1,17 +1,29 @@
 #description {
 	display: flex;
 	flex-direction: row;
+	border: 1px solid white;
+	border-radius: 15px;
+	padding: 0 10px;
 }
 #large-info {
 	display: flex;
 	flex-flow: column wrap;
 	align-items: center;
 	overflow: hidden;
-	margin: 5px auto;
+	margin: 15px auto;
 	text-align: center;
 	background-color: rgb(101, 148, 239);
 	color: white;
-	width: 99%;
+	width: 100%;
+	border-radius: 15px;
+}
+
+#large-info img {
+	display: block;
+	padding: 0 10px;
+	width: 100%;
+	height: auto;
+	object-fit: scale-down;
 }
 
 #small-data {

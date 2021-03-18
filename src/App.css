@@ -2,4 +2,16 @@
 
 body {
 	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+}
+
+#creds {
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+	position: absolute;
+	left: 50%;
+	right: 50%;
+	margin: 10px -25px;
+	padding-bottom: 15px;
 }
