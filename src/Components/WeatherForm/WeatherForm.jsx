@@ -20,11 +20,11 @@ const WeatherForm = ({ callback }) => {
 	};
 	const handleError = err => console.log(err);
 	const showPosition = async position => {
-		if (!position) return;
+		if (!position.length) return;
 		setCoords(position);
 		const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${position.coords.latitude}&lon=${position.coords.longitude}&days=7&units=I&key=${api_key}`;
 		const locationCode = await fetch(url);
-		if (locationCode.status !== 200) return callback(0);
+		if (locationCode.status !== 200) return;
 		const locationCodeJson = await locationCode.json();
 		const value = `${locationCodeJson['city_name']}, ${locationCodeJson['state_code']}, ${locationCodeJson['country_code']}`;
 		setLocation(value);
@@ -42,16 +42,23 @@ const WeatherForm = ({ callback }) => {
 
 	return (
 		<>
+			<h1>7-Day Weather Forecast</h1>
+			<h6 style={{ marginTop: '-20px' }}>
+				<a href='https://weatherbit.io' target='_blank' rel='noreferrer'>
+					Powered by Weatherbit.io
+				</a>
+			</h6>
 			<form onSubmit={updateLocation}>
-				<h6>If the city is not accurate, try including the state/country.</h6>
 				<input
-					placeholder='New York, NY, US'
+					placeholder='City Name'
 					onChange={handleChange}
 					defaultValue={location}
 				/>
-				<button type='submit'>Enter</button>
+				<button type='submit' disabled={!location?.length}>
+					Enter
+				</button>
+				<h6 style={{ marginTop: '5px' }}>Ex: New York, NY, US</h6>
 			</form>
-			<br />
 			<button onClick={getLocation}>Get Current Location</button>
 		</>
 	);

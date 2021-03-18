@@ -32,7 +32,14 @@ const WeatherDisplay = ({ location, reset }) => {
 				}),
 			});
 	}, [location]);
-	if (location === 0) return <h3>Find the upcoming weather!</h3>;
+	if (location === 0)
+		return (
+			<>
+				<br />
+				<br />
+				<hr />
+			</>
+		);
 	if (!location) return <h1>Not Found</h1>;
 	return (
 		<>

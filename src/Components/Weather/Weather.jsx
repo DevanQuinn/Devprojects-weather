@@ -3,7 +3,7 @@ import WeatherForm from '../WeatherForm/WeatherForm.jsx';
 import WeatherDisplay from '../WeatherDisplay/WeatherDisplay.jsx';
 
 const Weather = () => {
-	const [location, setLocation] = useState(0);
+	const [location, setLocation] = useState();
 	// const [unit, toggleUnit] = useReducer(
 	// 	unit => (unit = unit === 'metric' ? 'imperial' : 'metric'),
 	// 	'imperial'

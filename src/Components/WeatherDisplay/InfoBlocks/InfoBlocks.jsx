@@ -18,7 +18,10 @@ const InfoBlocks = ({ location, reset, select }) => {
 	return (
 		<>
 			<h1 id='area'>
-				{location['city_name']}, {location['state_code']}
+				{location['city_name']},{' '}
+				{location['country_code'] === 'US'
+					? location['state_code']
+					: location['country_code']}
 				<img
 					src='https://cdn0.iconfinder.com/data/icons/basic-uses-symbol-vol-3/100/Refresh_Reset_Reload_Again_Restart-512.png'
 					alt='reset-icon'
