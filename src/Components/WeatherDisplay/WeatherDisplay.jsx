@@ -32,7 +32,7 @@ const WeatherDisplay = ({ location, reset }) => {
 				}),
 			});
 	}, [location]);
-	if (location === 0)
+	if (!location)
 		return (
 			<>
 				<br />
@@ -40,7 +40,6 @@ const WeatherDisplay = ({ location, reset }) => {
 				<hr />
 			</>
 		);
-	if (!location) return <h1>Not Found</h1>;
 	return (
 		<>
 			<InfoBlocks location={location} reset={reset} select={setInfoSelect} />

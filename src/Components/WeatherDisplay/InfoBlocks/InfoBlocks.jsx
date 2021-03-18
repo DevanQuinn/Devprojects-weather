@@ -37,7 +37,7 @@ const InfoBlocks = ({ location, reset, select }) => {
 					return (
 						<div
 							key={i}
-							className='weather-block'
+							className='weather-block noselect'
 							id={id}
 							onClick={() => handleClick(i)}
 							ref={selectBlock[i]}

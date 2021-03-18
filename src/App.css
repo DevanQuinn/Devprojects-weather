@@ -20,3 +20,28 @@ a {
 	margin: -5px -25px;
 	padding-bottom: 15px;
 }
+
+@media only screen and (max-width: 800px) {
+	form {
+		display: flex;
+		flex-flow: column;
+		font-family: 'Montserrat', serif;
+	}
+
+	form input,
+	form button {
+		margin: 10px;
+	}
+
+	input {
+		height: 50px;
+		font-size: 24px;
+		font-family: 'Montserrat', serif;
+		text-align: center;
+	}
+	button {
+		height: 50px;
+		font-family: 'Montserrat', serif;
+		font-size: 18px;
+	}
+}

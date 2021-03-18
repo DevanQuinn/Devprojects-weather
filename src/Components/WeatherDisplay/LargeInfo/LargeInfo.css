@@ -1,3 +1,8 @@
+html {
+	border: none;
+	outline: none;
+}
+
 #description {
 	display: flex;
 	flex-direction: row;
@@ -11,7 +16,7 @@
 	align-items: center;
 	overflow: hidden;
 	margin: 15px auto;
-	margin-top: 0;
+	margin-top: -1px;
 	padding-top: 15px;
 	text-align: center;
 	background-color: rgb(101, 148, 239);
@@ -33,6 +38,12 @@
 	align-items: space-around;
 }
 
+#description-small {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+}
+
 .grid-small {
 	margin: 10px;
 	/* background-color: #eeeeee; */
@@ -42,4 +53,42 @@
 
 .subtitle {
 	color: rgb(199, 199, 199);
+}
+
+@media only screen and (max-width: 800px) {
+	#description {
+		border: none;
+		flex-flow: column wrap;
+		justify-content: center;
+		width: 75%;
+	}
+
+	#large-info img {
+		margin: 0 auto;
+		display: inline;
+		width: 25%;
+		padding: 0;
+	}
+
+	#description div {
+		padding: 0;
+	}
+
+	#description hr {
+		display: none;
+	}
+
+	#description-small {
+		flex-flow: row wrap;
+	}
+
+	#small-data {
+		flex-flow: row wrap;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#small-data div {
+		font-size: 18px;
+	}
 }

@@ -58,14 +58,25 @@ html {
 }
 
 @media only screen and (max-width: 800px) {
+	.noselect {
+		-webkit-touch-callout: none; /* iOS Safari */
+		-webkit-user-select: none; /* Safari */
+		-khtml-user-select: none; /* Konqueror HTML */
+		-moz-user-select: none; /* Old versions of Firefox */
+		-ms-user-select: none; /* Internet Explorer/Edge */
+		user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+	}
+
 	#weather-container {
 		flex-flow: row nowrap;
 		overflow: scroll;
+		overflow-y: hidden;
 		width: 100%;
 	}
 
 	.weather-block {
-		width: 75%;
+		width: 80%;
 		border-radius: 0;
 	}
 }

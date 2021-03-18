@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const WeatherForm = ({ callback }) => {
 	const [location, setLocation] = useState();
-	const [coords, setCoords] = useState(undefined);
+	const [coords, setCoords] = useState();
 	const api_key = process.env.REACT_APP_API_KEY;
 	const getLocation = () => {
 		var options = {
@@ -17,10 +17,11 @@ const WeatherForm = ({ callback }) => {
 				handleError,
 				options
 			);
+		else handleError("doesn't exist");
 	};
 	const handleError = err => console.log(err);
 	const showPosition = async position => {
-		if (!position.length) return;
+		if (!position) return;
 		setCoords(position);
 		const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${position.coords.latitude}&lon=${position.coords.longitude}&days=7&units=I&key=${api_key}`;
 		const locationCode = await fetch(url);

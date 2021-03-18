@@ -10,14 +10,16 @@ const LargeInfo = ({ data }) => {
 					alt='selected day icon'
 					src={`https://www.weatherbit.io/static/img/icons/${data.weather.icon}.png`}
 				/>
-				<div className='grid-small'>
-					<h3>High</h3>
-					<h2>{data.high_temp}℉</h2>
-				</div>
-				<hr />
-				<div className='grid-small'>
-					<h3>Low</h3>
-					<h2>{data.low_temp}℉</h2>
+				<div id='description-small'>
+					<div className='grid-small'>
+						<h3>High</h3>
+						<h2>{data.high_temp}℉</h2>
+					</div>
+					<hr />
+					<div className='grid-small'>
+						<h3>Low</h3>
+						<h2>{data.low_temp}℉</h2>
+					</div>
 				</div>
 			</div>
 			<h3>{data.weather.description}</h3>
